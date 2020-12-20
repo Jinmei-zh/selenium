@@ -9,7 +9,9 @@ class TestCase(object):
     def test_search(self):
         self.driver.get('http://www.baidu.com')
         sleep(1)
+        # id定位
         self.driver.find_element_by_id('kw').send_keys('element')
+        # xpath定位
         # self.driver.find_element_by_xpath('//*[@id="kw"]').send_keys('element')
         sleep(1)
         self.driver.find_element_by_id('su').click()

@@ -22,6 +22,13 @@ class TestCase(object):
 
     def test_add(self):
         self.driver.get('http://gz-testky.inkept.cn/pao-pao-config/list?ticket=%s' % self.ticket)
+        # 1. 强制等待
+        # sleep(3)
+        
+        # 2. 隐式等待
+        # self.driver.implicitly_wait(5)
+
+        # 3. 显示等待
         # wait = WebDriverWait(self.driver, 5)
         # wait.until(EC.presence_of_element_located((By.ID,"gift_id")))
         self.driver.find_element_by_xpath('//*[@id="entry-container"]/section/section/main/div/section/form/div[3]/button[2]').click()
