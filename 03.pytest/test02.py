@@ -10,9 +10,10 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
-with open('./test.json', 'r') as f:
-    conf = f.read()
-    params = json.loads(conf)
+def get_conf():
+    with open('./test.json') as f:
+        params = json.load(f)
+        return params
 
 class TestCase(object):
     def setup_method(self, method):
@@ -25,10 +26,11 @@ class TestCase(object):
     def teardown_method(self, method):
       self.driver.quit()
 
-    @pytest.mark.parametrize("data", params)
+    @pytest.mark.parametrize("data", get_conf())
     def test_add(self, data):
         print('打泡泡全局设置测试-%s' % data['name'])
         # print(data['message'])
+        
         self.driver.get('http://gz-testky.inkept.cn/pao-pao-config/list?ticket=%s' % self.ticket)
         # 等待添加按钮节点出现
         wait = WebDriverWait(self.driver, 5)
