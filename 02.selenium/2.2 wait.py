@@ -10,20 +10,10 @@ class TestCase(object):
         self.ticket = 'STXAgjskckJCvAgarxFdhZRAKlXfbfkCRpt'
         self.driver.get('http://gz-testkyphp.inkept.cn/user/login?ticket=%s' % self.ticket)
 
-    def test_search(self):
-        self.driver.get('http://gz-testky.inkept.cn/pao-pao-config/list?ticket=%s' % self.ticket)
-        sleep(1)
-        self.driver.find_element_by_id('gift_id').send_keys('111')
-        sleep(1)
-        self.driver.find_element_by_xpath('//*[@id="entry-container"]/section/section/main/div/section/form/div[3]/button[1]').click()
-
-        sleep(3)
-        self.driver.quit()
-
     def test_add(self):
         self.driver.get('http://gz-testky.inkept.cn/pao-pao-config/list?ticket=%s' % self.ticket)
         # 1. 强制等待
-        # sleep(3)
+        # sleep(1)
         
         # 2. 隐式等待
         # self.driver.implicitly_wait(5)
@@ -32,9 +22,8 @@ class TestCase(object):
         # wait = WebDriverWait(self.driver, 5)
         # wait.until(EC.presence_of_element_located((By.ID,"gift_id")))
         self.driver.find_element_by_xpath('//*[@id="entry-container"]/section/section/main/div/section/form/div[3]/button[2]').click()
-        #  self.driver.find_element_by_id('gift_id[0]').send_keys(110)
+        self.driver.find_element_by_id('gift_id[0]').send_keys(110)
 
 if __name__ == '__main__':
     case = TestCase()
-    # case.test_search()
     case.test_add()
