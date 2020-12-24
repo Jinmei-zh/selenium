@@ -12,13 +12,16 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 
 Data = [1, 2]
+
+
 class Test(object):
 
     @pytest.mark.parametrize("data", Data)
     def test_01(self, data):
         print('测试开始')
         assert data == 2, "信息"
-      
+
+
 if __name__ == "__main__":
     # 命令行运行 pytest -s -v 3.1.py
     pytest.main(['test01.py', '-sv'])
