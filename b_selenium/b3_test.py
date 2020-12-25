@@ -110,13 +110,13 @@ class TestCase(object):
         # 选择礼物id
         gift_id = self.driver.find_elements_by_id('gift_id[0]')
         gift_id[0].click()
-        gift_id[1].send_keys(104) # 选择礼物id为21
+        gift_id[1].send_keys(119) # 选择礼物id为21
 
         sleep(1)
         gift_id[1].send_keys(Keys.TAB)
 
         # 点击提交
-        sleep(1)
+        sleep(2)
         btn = self.driver.find_element_by_xpath('/html/body/div[4]/div/div[2]/div/div[2]/div[3]/div/button[2]')
         btn.click()
 
