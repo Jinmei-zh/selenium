@@ -13,6 +13,12 @@ from selenium.webdriver.common.keys import Keys
 
 Data = [1, 2, 3]
 
+# @pytest.mark.parametrize装饰器伪代码
+# def parametrize(Data):
+#     # 解析列表赋值给a，然后遍历test_01方法
+#     for a in Data:
+#         test_01(a)
+
 class Test(object):
 
     @pytest.mark.parametrize("a", Data)
